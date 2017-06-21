@@ -1,0 +1,91 @@
+<gear>
+    <global detectorName="Calice Prototypes" />
+    <!--Gear XML file automatically created with GearXML::createXMLFile ....-->
+    <detectors>
+        <detector name="EcalEndcap" geartype="CalorimeterParameters">
+            <layout type="Endcap" symmetry="4" phi0="0.000000000e+00" />
+            <dimensions inner_r="0.000000000e+00" outer_r="1.922500000e+02" inner_z="1.486150000e+03" />
+            <layer repeat="1" thickness="5.900000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.700000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.900000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.700000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.900000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.700000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.900000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.700000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.900000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="5.700000000e+00" absorberThickness="1.400000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.300000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.100000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.300000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.100000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.300000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.100000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.300000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.100000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.300000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="7.100000000e+00" absorberThickness="2.800000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.700000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.500000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.700000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.500000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.700000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.500000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.700000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.500000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.700000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+            <layer repeat="1" thickness="8.500000000e+00" absorberThickness="4.200000000e+00" cellSize0="1.000000000e+01" cellSize1="1.000000000e+01" />
+        </detector>
+
+        <detector name="YokeEndcap" geartype="CalorimeterParameters">
+            <layout type="Endcap" symmetry="4" phi0="0.000000000e+00" />
+            <dimensions inner_r="0.000000000e+00" outer_r="5.000000000e+02" inner_z="3.274740000e+03" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="5.080000000e+01" absorberThickness="1.905000000e+01" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="5.000000000e+01" cellSize1="1.000000000e+03" />
+            <layer repeat="1" thickness="1.333500000e+02" absorberThickness="1.016000000e+02" cellSize0="1.000000000e+03" cellSize1="5.000000000e+01" />
+        </detector>
+        <detector name="HcalEndcap" geartype="CalorimeterParameters">
+            <layout type="Endcap" symmetry="4" phi0="0.000000000e+00" />
+            <dimensions inner_r="0.000000000e+00" outer_r="4.500000000e+02" inner_z="1.716000000e+03" />
+            <layer repeat="3" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.183000000e+01" absorberThickness="1.760000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="2" thickness="3.183000000e+01" absorberThickness="1.760000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.093000000e+01" absorberThickness="1.670000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="8" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.183000000e+01" absorberThickness="1.760000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="4" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="2" thickness="3.183000000e+01" absorberThickness="1.760000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="2" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.183000000e+01" absorberThickness="1.760000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.093000000e+01" absorberThickness="1.670000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.093000000e+01" absorberThickness="1.670000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="1" thickness="3.163000000e+01" absorberThickness="1.740000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+            <layer repeat="7" thickness="3.183000000e+01" absorberThickness="1.760000000e+01" cellSize0="3.0e+01" cellSize1="3.000000000e+01" />
+        </detector>
+        <detector name="MokkaParameters" geartype="GearParameters">
+            <parameter name="MokkaModel" type="string" value="TBCern0707_p0709" />
+            <parameter name="MokkaVersion" type="string" value="trunk" />
+            <parameter name="calorimeter_region_rmax" type="string" value="" />
+            <parameter name="calorimeter_region_zmax" type="string" value="" />
+            <parameter name="tracker_region_rmax" type="string" value="" />
+            <parameter name="tracker_region_zmax" type="string" value="" />
+            <parameter name="z_end_tcmt" type="string" value="4747.94" />
+        </detector>
+    </detectors>
+</gear>

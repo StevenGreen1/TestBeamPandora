@@ -1,0 +1,356 @@
+<marlin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ilcsoft.desy.de/marlin/marlin.xsd">
+
+  <execute>
+
+<!--     <processor name="ProgressHandler"/> -->
+    <processor name="Conditions"/>
+    <processor name="HcalMappingProcessor"/>
+<!--     <processor name="HcalCellDescriptionProcessor"/> -->
+
+    <processor name="MyeventSelector"/>
+    <processor name="MyEventMixingProcessor"/>
+<!--     <processor name="MyTBTrackToLCIOTrackProcessor"/> -->
+    <processor name="MyCalicePandora"/>
+
+
+  </execute>
+
+  <global>
+    <parameter name="LCIOInputFiles">/afs/cern.ch/eng/clic/work2/alucacit/EDIT2011/CALICE/data/Run330962_rec.000.slcio </parameter>
+    <parameter name="MaxRecordNumber" value="5000" />
+      <parameter name="SkipNEvents" value="1100" />
+        <parameter name="SupressCheck" value="false" />
+  <parameter name="GearXMLFile" value="CERN2007.xml" />
+          <parameter name="Verbosity" options="DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT"> DEBUG0  </parameter>
+  </global>
+
+
+
+
+  <processor name="MyTBTrackToLCIOTrackProcessor" type="TBTrackToLCIOTrackProcessor">
+      <parameter name="TBTrackXCollectionName" type="string">TBTrackFEX</parameter>
+      <parameter name="TBTrackYCollectionName" type="string">TBTrackFEY</parameter>
+      <parameter name="OutputCollectionName" type="string">CaliceTracks</parameter>
+      <parameter name="ZReferencePoint" type="float">0.0</parameter>
+      <parameter name="TrackMomentumMagnitude" type="float">80.0</parameter>
+  </processor>
+
+
+  <processor name="MyEventMixingProcessor" type="EventMixingProcessor">
+      <parameter name="ECalSourceCollections" type="StringVec">EmcCalorimeter_Hits</parameter>
+      <parameter name="HCalSourceCollections" type="StringVec">AhcCalorimeter_Hits</parameter>
+      <parameter name="TCSourceCollections"   type="StringVec">TcmtCalorimeter_Hits</parameter>
+
+      <parameter name="ECalDestinationCollection" type="string">EmcCalorimeter_Hits_mix</parameter>
+      <parameter name="HCalDestinationCollection" type="string">AhcCalorimeter_Hits_mix</parameter>
+      <parameter name="TCDestinationCollection"   type="string">TcmtCalorimeter_Hits_mix</parameter>
+
+      <parameter name="MixFileName" type="string">/afs/cern.ch/eng/clic/work2/alucacit/EDIT2011/CALICE/data/Run330962_rec.000.slcio</parameter>
+
+      <parameter name="HCalCellSizeX" type="int">3</parameter>
+      <parameter name="HCalCellSizeY" type="int">3</parameter>
+
+      <parameter name="ECalCellSizeX" type="int">1</parameter>
+      <parameter name="ECalCellSizeY" type="int">1</parameter>
+
+      <parameter name="TCCellSizeX" type="int">5</parameter>
+      <parameter name="TCCellSizeY" type="int">5</parameter>
+
+
+      <parameter name="MoveHCalNCellsX" type="int">3</parameter>
+      <parameter name="MoveHCalNCellsY" type="int">3</parameter>
+
+      <parameter name="MoveECalNCellsX" type="int">30</parameter>
+      <parameter name="MoveECalNCellsY" type="int">15</parameter>
+
+      <parameter name="MoveTCNCellsX" type="int">6</parameter>
+      <parameter name="MoveTCNCellsY" type="int">3</parameter>
+
+      <parameter name="MappingProcessorName" type="string">HcalMappingProcessor</parameter>
+
+      <parameter name="SkipNEvents" type="int">1101</parameter>
+
+  </processor>
+
+
+
+
+<processor name="MyCalicePandora" type="CalicePandoraProcessor">
+  <parameter name="PandoraSettingsXmlFile" type="String"> PandoraSettings.xml </parameter>
+
+  <!-- Collection names -->
+  <parameter name="TrackCollections" type="StringVec">CaliceTracks</parameter>
+  <parameter name="ECalCaloHitCollections" type="StringVec">EmcCalorimeter_Hits_mix</parameter>
+  <parameter name="HCalCaloHitCollections" type="StringVec">AhcCalorimeter_Hits_mix</parameter>
+  <parameter name="TcCaloHitCollections" type="StringVec">TcmtCalorimeter_Hits_mix</parameter>
+
+<!--   <parameter name="MCParticleCollections" type="StringVec">MCParticle</parameter> -->
+<!--   <parameter name="RelCaloHitCollections" type="StringVec">RelationCaloHit</parameter>  -->
+<!--   <parameter name="RelTrackCollections" type="StringVec">LDCTracksMCP</parameter> -->
+  <parameter name="PFOCollectionName" type="String">CalicePandoraPFOs</parameter>
+
+  <!-- Calibration constants -->
+  <parameter name="ECalToMipCalibration" type="float">1.0</parameter>
+  <parameter name="ECalMipThreshold" type="float">0.0</parameter>
+  <parameter name="ECalToEMGeVCalibration" type="float">0.005</parameter>
+  <parameter name="ECalToHadGeVCalibration" type="float">0.005</parameter>
+
+  <parameter name="AverageRadiationLengthECal" type="float">0.0354476759098</parameter>
+  <parameter name="AbsorberRadiationLengthECal" type="float">0.285714285</parameter>
+  <parameter name="AbsorberInteractionLengthECal" type="float">0.0100543</parameter>
+
+
+
+
+  <parameter name="HCalToMipCalibration" type="float">1.0</parameter>
+  <parameter name="HCalMipThreshold" type="float">0.5</parameter>
+  <parameter name="HCalToEMGeVCalibration" type="float">0.02353</parameter>
+  <parameter name="HCalToHadGeVCalibration" type="float">0.02823</parameter>
+
+  <parameter name="AbsorberRadiationLengthHCal" type="float">0.0567</parameter>
+  <parameter name="AbsorberInteractionLengthHCal" type="float">0.00589</parameter>
+
+  <parameter name="AverageRadiationLengthHCal" type="float">0.02353</parameter>
+  <parameter name="AverageInteractionLengthHCal" type="float">0.00432</parameter>
+
+
+
+  <parameter name="TcToMipCalibration" type="float">1.0</parameter>
+  <parameter name="TcMipThreshold" type="float">0.0</parameter>
+  <parameter name="TcToEMGeVCalibration" type="float">0.02353</parameter>
+  <parameter name="TcToHadGeVCalibration" type="float">0.02823</parameter>
+
+  <parameter name="MaxTcHitHadronicEnergy" type="float">100.0</parameter>
+
+  <parameter name="AbsorberRadiationLengthTc" type="float">0.0567</parameter>
+  <parameter name="AbsorberInteractionLengthTc" type="float">0.00589</parameter>
+
+  <parameter name="AverageRadiationLengthTc" type="float">0.02353</parameter>
+  <parameter name="AverageInteractionLengthTc" type="float">0.00432</parameter>
+
+
+
+  <parameter name="MappingProcessorName" type="string">HcalMappingProcessor</parameter>
+
+  <parameter name="TrackStartInZ" type="float">-300.0</parameter>
+  <parameter name="TrackMomentumMagnitude" type="float">80.0</parameter>
+
+  <parameter name="TrackCollectionsX" type="String">TBTrackFEX</parameter>
+  <parameter name="TrackCollectionsY" type="String">TBTrackFEY</parameter>
+</processor>
+
+
+
+
+  <processor name="MyEventDisplayProcessor" type="EventDisplayProcessor">
+    <!--processor for displaying CALICE events in CED-->
+    <!--1 skips opening a new CED connection and appends output to existing CED event-->
+    <parameter name="CED_AppendToExistingCED" type="int">0 </parameter>
+    <!--0 disables CED drawing-->
+    <parameter name="CED_Draw" type="int">1 </parameter>
+    <!--0 disables to wait for key at end of event-->
+    <parameter name="CED_WaitForKeyPressed" type="int">1 </parameter>
+    <!--Name of the AHCAL CalorimeterHit collection-->
+    <parameter name="Collection_AhcalCalorimeterHits" type="string" lcioInType="CalorimeterHit"> AhcCalorimeter_Hits </parameter>
+    <!--Name of the Si-W ECAL CalorimeterHit collection-->
+    <parameter name="Collection_SiWEcalCalorimeterHits" type="string" lcioInType="CalorimeterHit"> EmcCalorimeter_Hits</parameter>
+    <!--Name of the MC particle collection-->
+    <parameter name="Collection_MCParticle" type="string"> </parameter>
+    <!--Name of the TCMT CalorimeterHit collection-->
+    <parameter name="Collection_TcmtCalorimeterHits" type="string" lcioInType="CalorimeterHit"> TcmtCalorimeter_Hits </parameter>
+    <!--name of event parameter with AHCAL shower start layer-->
+    <parameter name="Parameter_ShowerStartLayer" type="string"> </parameter>
+    <parameter name="ShowerStartCollectionName" type="string"> ShowerStartingLayer</parameter>
+    <!--name of event parameter with shower start position (x,y,z)-->
+    <parameter name="Parameter_ShowerStartPosition" type="string"> </parameter>
+    <!--name of Ahcal CellDescriptionProcessor which takes care of the cell description generation-->
+    <parameter name="ProcessorName_CellDescription" type="string"> HcalCellDescriptionProcessor </parameter>
+    <!--name of Ahcal MappingProcessor which takes care of the mapping-->
+    <parameter name="ProcessorName_Mapping" type="string"> HcalMappingProcessor </parameter>
+    <!--name of Ahcal CellNeighboursProcessor which takes care of the cell neighbours calculation-->
+    <parameter name="ProcssorName_CellNeighbours" type="string"> MyCellNeighboursProcessor </parameter>
+       
+    <parameter name="Verbosity" options="DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT"> DEBUG  </parameter>
+  </processor>
+
+
+
+ <processor name="MySkipEventsProcessor" type="SkipEventsProcessor">
+ <!--Skip events if my condition is not fullfilled-->
+  <!--Name of input Primary Track Finder track collection name-->
+  <parameter name="PtfTrackCollectionName" type="string">PrimaryTrackHits </parameter>
+  <!--Name of input shower start collection-->
+  <parameter name="ShowerStartCollectionName" type="string">ShowerStartingLayer </parameter>
+  <!--verbosity level of this processor ("DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT")-->
+  <parameter name="Verbosity" type="string">DEBUG </parameter>
+</processor>
+
+
+
+
+ <processor name="MyALHcalHistosOfflineProcessor" type="ALHcalHistosOfflineProcessor">
+ <!--Skip events if my condition is not fullfilled-->
+  <!--Name of input HCAL collection name-->
+  <parameter name="HcalCollectionName" type="string">AhcCalorimeter_Hits </parameter>
+  <!--Name of input Primary Track Finder track collection name-->
+  <parameter name="PtfTrackCollectionName" type="string">PrimaryTrackHits </parameter>
+  <!--Name of ROOT output file name-->
+  <parameter name="RootFileName" type="string">/afs/cern.ch/eng/clic/work2/alucacit/EDIT2011/rootFiles/histos_piMinus_80GeV_330962.root </parameter>
+  <!--Name of input shower start collection-->
+  <parameter name="ShowerStartCollectionName" type="string">ShowerStartingLayer </parameter>
+  <!--verbosity level of this processor ("DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT")-->
+  <!--parameter name="Verbosity" type="string">DEBUG </parameter-->
+</processor>
+
+
+<processor name="MyeventSelector" type="eventSelector">
+  <!--This processor selects events with special triggers. 
+      pedestal=P, cosmic=Co, calibration=Ca, beam=B, cherenkov=Ch, veto=V, 
+      vetoUpLeft=Vul, vetoUpRight=Vur,  vetoDownLeft=Vdl, vetoDownRight=Vdr,
+      multiplicityBit = multiBit, t3x3a=t3a, t3x3b=t3b, t10x10a=t10a,                   
+      t10x10b=t10b, t100x100a=t100a, t100x100b=t100b, spill=S, generic=G, oscillator=O, external=X,                   
+      EMC-TrackBit=TrackEmc, auxiliary bit 1 = aux1, auxiliary bit 2 = aux2, auxiliary bit 3 = aux3, 
+      auxiliary bit 4 = aux4, auxiliary bit 5 = aux5-->
+     <!--trigger flags which are required-->
+    <parameter name="withTrigger" type="StringVec"> B </parameter>
+ </processor>
+ 
+  <processor name="ProgressHandler" type="ProgressHandler">
+    <!--Report event/run numbers at fixed time intervals, and handle SIGINT (Ctrl-C) for a graceful exit.-->
+    <!--The number of seconds after which the number of processed events will be shown.-->
+    <parameter name="ReportInterval" type="int" value="20"/>
+  </processor>
+
+
+  <processor name="MyCellNeighboursProcessor" type="CellNeighboursProcessor">
+    <!--Processor that provides a MappedContainer of CellNeighbours objects-->
+    <!--Name of the MappingProcessor instance that provides the geometry of the detector.-->
+    <parameter name="MappingProcessorName" type="string">HcalMappingProcessor </parameter>
+  </processor>
+
+  <processor name="Conditions" type="ConditionsProcessor">
+    <!--ConditionsProcessor provides access to conditions data
+    transparently from LCIO files or a databases, using LCCD-->
+    <!--Initialization string for conditions database-->
+    <parameter name="DBInit" type="string" value="flccaldb01.desy.de:calice:caliceon:Delice.1:3306"/>
+
+      <!--Initialization of a conditions db file handler-->
+      <!--parameter name="DBFileHandler" type="StringVec"> conditionsName conditions.slcio collectionName </parameter-->
+      <!--Initialization of a data file handler-->
+      <!--parameter name="DataFileHandler" type="StringVec" value="conditionsName"/-->
+      <!--Initialization of a simple conditions file handler-->
+      <!--parameter name="SimpleFileHandler" type="StringVec"> conditionsName conditions.slcio collectionName </parameter-->
+
+
+      <parameter name="DBCondHandler" type="StringVec">
+        AhcModuleLocationReference /cd_calice_cernbeam/Hcal/HcalModuleLocationReference  ahc_HcalModuleLocationReference_001
+    AhcModuleConnection        /cd_calice_cernbeam/Hcal/HcalMapping                  ahc_HcalMapping_002
+    AhcModuleDescription       /cd_calice/Ahc/ModuleDescription                                          ahc_ModuleDescription_001
+    AhcDetectorTransformation  /cd_calice_cernbeam/Hcal/DetectorPosition ahc_DetectorPosition_002
+  </parameter>
+
+  </processor>
+
+
+  <processor name="HcalMappingProcessor" type="MappingProcessor">
+    <!--Processor that provides a CALICE Mapping object from conditions data-->
+    <!--Name of the ModuleConnection collection-->
+    <parameter name="ModuleConnection"  type="string" lcioInType="LCGenericObject"> AhcModuleConnection </parameter>
+    <!--Name of the ModuleDescription collection-->
+    <parameter name="ModuleDescription" type="string" lcioInType="LCGenericObject"> AhcModuleDescription </parameter>
+    <!--Type name of the mapper instance. Currently valid identifiers are: AHC-->
+    <parameter name="MapperType" type="string" value="AHC"/>
+  </processor>
+
+
+  <processor name="HcalCellDescriptionProcessor" type="CellDescriptionProcessor">
+    <!--Processor that provides a MappedContainer of CALICE CellDescription objects from conditions data-->
+
+    <!--name of MappingProcessor which takes care of the mapping-->
+    <parameter name="MappingProcessorName"   type="string"> HcalMappingProcessor </parameter>
+
+    <!--Name of the DetectorTransformation collection-->
+    <parameter name="DetectorTransformation" type="string" lcioInType="LCGenericObject"> AhcDetectorTransformation </parameter>
+    <!--Name of the ModuleConnection collection-->
+    <parameter name="ModuleConnection"       type="string" lcioInType="LCGenericObject"> AhcModuleConnection </parameter>
+    <!--Name of the ModuleDescription collection-->
+    <parameter name="ModuleDescription"      type="string" lcioInType="LCGenericObject"> AhcModuleDescription </parameter>
+    <!--Name of the ModuleLocation collection-->
+    <parameter name="ModuleLocation"         type="string" lcioInType="LCGenericObject"> AhcModuleLocationReference </parameter>
+  </processor>
+
+
+
+  <processor name="MyPrimaryTrackFinder" type="PrimaryTrackFinder">
+    <!--Primary Track Finder-->
+    <!--Length limit for saved tracks-->
+    <parameter name="AbsTrackLengthLimit" type="int">3 </parameter>
+    <!--Beam incident angle in degrees-->
+    <parameter name="BeamAngle" type="float">0 </parameter>
+    <!--Beam energy in GeV-->
+    <parameter name="BeamEnergy" type="float">0 </parameter>
+    <!--Line size for CED drawing-->
+    <parameter name="CEDLineSize" type="int">2 </parameter>
+    <!--Point size for CED drawing-->
+    <parameter name="CEDPointSize" type="int">5 </parameter>
+    <!--Host Port number for CED-->
+    <parameter name="CED_HostPort" type="int">7557 </parameter>
+    <!--Flag for CED drawing-->
+    <parameter name="DrawFlag" type="bool">false </parameter>
+    <!--Skip starting layer finding procedure-->
+    <parameter name="FixStartingLayer" type="bool">false </parameter>
+    <!--Noise threshold for hit energy in MIPs-->
+    <parameter name="NoiseMIPLimit" type="float">0.5 </parameter>
+    <!--Name of shower start collection-->
+    <parameter name="OutputStartCollectionName" type="string">ShowerStartingLayer </parameter>
+    <!--Name of track hits collection-->
+    <parameter name="OutputTrackCollectionName" type="string">PrimaryTrackHits </parameter>
+    <!--Minimum track length relative to shower start-->
+    <parameter name="RelTrackLengthLimit" type="float">0.3 </parameter>
+    <!--Directory for output ROOT-file-->
+    <parameter name="RootOutputFileDir" type="string">./ </parameter>
+    <!--Flag for output to Root-file-->
+    <parameter name="RootOutputFlag" type="bool">false </parameter>
+    <!--Maximum gap between track points-->
+    <parameter name="SizeofGAP" type="int">6 </parameter>
+    <!--Skip primary track finding procedure-->
+    <parameter name="SkipTrackFinder" type="bool">false </parameter>
+    <!--verbosity level of this processor ("DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT")-->
+    <!--parameter name="Verbosity" type="string">DEBUG </parameter-->
+    <!--X alignment ECAL-HCAL in mm-->
+    <parameter name="XAlignment" type="float">0 </parameter>
+    <!--Y alignment ECAL-HCAL in mm-->
+    <parameter name="YAlignment" type="float">0 </parameter>
+    <!--Name of ECAL hits collection-->
+    <parameter name="ecalHitsCollection" type="string">EmcCalorimeter_Hits </parameter>
+    <!--Name of HCAL hits collection-->
+    <parameter name="hcalHitsCollection" type="string">AhcCalorimeter_Hits </parameter>
+    <!--Name of TCMT hits collection-->
+    <parameter name="tcmtHitsCollection" type="string">TcmtCalorimeter_Hits </parameter>
+  </processor>
+  
+
+  
+
+ <processor name="MyLCIOOutputProcessor" type="LCIOOutputProcessor">
+ <!--Writes the current event to the specified LCIO outputfile. Needs to be the last ActiveProcessor.-->
+  <!--drops the named collections from the event-->
+  <!--parameter name="DropCollectionNames" type="StringVec">TPCHits HCalHits  </parameter-->
+  <!--drops all collections of the given type from the event-->
+  <!--parameter name="DropCollectionTypes" type="StringVec">SimTrackerHit SimCalorimeterHit  </parameter-->
+  <!-- write complete objects in subset collections to the file (i.e. ignore subset flag)-->
+  <!--parameter name="FullSubsetCollections" type="StringVec">MCParticlesSkimmed  </parameter-->
+  <!--force keep of the named collections - overrules DropCollectionTypes (and DropCollectionNames)-->
+  <!--parameter name="KeepCollectionNames" type="StringVec">MyPreciousSimTrackerHits  </parameter-->
+  <!-- name of output file -->
+  <parameter name="LCIOOutputFile" type="string">outputfile.slcio </parameter>
+  <!--write mode for output file:  WRITE_APPEND or WRITE_NEW-->
+  <parameter name="LCIOWriteMode" type="string">None </parameter>
+  <!--will split output file if size in kB exceeds given value - doesn't work with APPEND and NEW-->
+  <!--parameter name="SplitFileSizekB" type="int">1992294 </parameter-->
+  <!--verbosity level of this processor ("DEBUG0-4,MESSAGE0-4,WARNING0-4,ERROR0-4,SILENT")-->
+  <!--parameter name="Verbosity" type="string">DEBUG </parameter-->
+</processor>
+
+
+</marlin>

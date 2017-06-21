@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/public/calice/!svn/ver/3593/CalicePandora/trunk/include
+END
+SimpleBFieldCalculator.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/public/calice/!svn/ver/3510/CalicePandora/trunk/include/SimpleBFieldCalculator.h
+END
+GeometryCreator.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/public/calice/!svn/ver/3544/CalicePandora/trunk/include/GeometryCreator.h
+END
+CaloHitCreator.h
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/public/calice/!svn/ver/3545/CalicePandora/trunk/include/CaloHitCreator.h
+END
+MCParticleCreator.h
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/public/calice/!svn/ver/3510/CalicePandora/trunk/include/MCParticleCreator.h
+END
+PfoCreator.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/public/calice/!svn/ver/3510/CalicePandora/trunk/include/PfoCreator.h
+END
+TrackCreator.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/public/calice/!svn/ver/3573/CalicePandora/trunk/include/TrackCreator.h
+END
+CalicePandoraProcessor.h
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/public/calice/!svn/ver/3510/CalicePandora/trunk/include/CalicePandoraProcessor.h
+END
+EventMixingProcessor.hh
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/public/calice/!svn/ver/3593/CalicePandora/trunk/include/EventMixingProcessor.hh
+END
+CalicePseudoLayerCalculator.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/public/calice/!svn/ver/3558/CalicePandora/trunk/include/CalicePseudoLayerCalculator.h
+END
+PathLengthCalculator.h
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/public/calice/!svn/ver/3544/CalicePandora/trunk/include/PathLengthCalculator.h
+END
